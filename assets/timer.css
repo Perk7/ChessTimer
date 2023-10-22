@@ -1,0 +1,336 @@
+.clock-swap {
+    cursor: pointer;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5rem;
+    display: flex;
+    padding: 1rem 0;
+    background-color: #0003;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    font-weight: 600;
+}
+
+.clock-swap svg {
+    margin-left: 5px;
+}
+
+.clock-swap:hover {
+    background-color: #0005;
+}
+
+.clock-section {
+    position: relative;
+}
+
+.timer-block {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timer-delta-block {
+    width: 80%;
+}
+
+.timer-delta {
+    cursor: pointer;
+    font-size: 2.5rem;
+    display: flex;
+    width: 100%;
+    height: 15rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: #0003;
+}
+
+.delta-active {
+    background-color: #ff9f3b;
+}
+
+.timer-controls {
+    width: 80%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.timer-controls__item {
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 26%;
+    font-size: 1rem;
+    display: flex;
+    font-weight: 600;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timer-mute-block {
+    width: 80%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.timer-mute-btn {
+    font-size: 2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.timer-mute-btn[data-state="muted"] svg:first-child {
+    display: none;
+}
+
+.timer-mute-btn[data-state="unmuted"] svg:last-child {
+    display: none;
+}
+
+
+.timer-controls__item svg {
+    width: 30%;
+}
+
+#clock-pause[data-state="pause"] svg:nth-child(2) {
+    display: none;
+}
+
+#clock-pause[data-state="unpause"] svg:first-child {
+    display: none;
+}
+
+.clock-menu {
+    background-color: #afafaff2;
+    border-top: 1px solid #000;
+    overflow-y: auto;
+    margin-bottom: 3rem;
+    position: absolute;
+    width: 100%;
+}
+
+.clock-menu::-webkit-scrollbar {
+    width: 5px;
+}
+  
+.clock-menu::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 3px;
+}
+  
+.clock-menu::-webkit-scrollbar-thumb {
+    background: #595757;
+    border-radius: 3px;
+}
+
+.clock-menu__item {
+    cursor: pointer;
+    width: 100%;
+    padding: 5% 38%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #0004;
+    font-weight: 600;
+}
+
+.clock-menu__item svg {
+    font-size: 2rem;
+    width: 30%;
+}
+
+.clock-menu__info {
+    width: 55%;
+}
+
+.clock-inactive {
+    opacity: 0;
+    visibility: hidden; 
+    transition: visibility 0.1s 0.5s,
+                opacity 0.5s;
+}
+
+.clock-active {
+    opacity: 1;
+    visibility: visible; 
+    transition: opacity 0.5s;
+}
+
+.clock-item_active {
+    background-color: #0002;
+}
+
+.timer-popup__blur {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    background: #0008;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.timer-blur_active {
+    display: block;
+}
+
+.timer-popup {
+    background: #cdcbcb;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    margin-top: calc((100vh - 16rem)/2);
+    padding: 1rem 0;
+}
+
+.timer-popup__head {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-bottom: 1rem 0;
+}
+
+.timer-popup__form {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    font-size: 1.25rem;
+    width: 72%;
+    margin-left: 14%;
+}
+
+.timer-popup__form label {
+    width: 70%;
+}
+
+.timer-popup__form input {
+    width: 30%;
+}
+
+.timer-popup__form input::placeholder {
+    font-size: 1.25rem;
+  }
+
+.timer-popup__btns {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 0;
+    width: 72%;
+    margin-left: 14%;
+}
+
+.timer-popup__btn {
+    cursor: pointer;
+    background-color: #0001;
+    padding: 0.7rem 0;
+    width: 40%;
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #000;
+}
+
+@media (min-width: 450px) and (max-width: 550px) {
+    .timer-controls__item {
+        width: 21%;
+    }
+
+    .timer-delta {
+        height: 18rem;
+    }
+}
+
+@media (min-width: 550px) {
+    .timer-delta {
+        height: 16rem;
+    }
+
+    .timer-delta-block {
+        width: 80%;
+        display: flex;
+    }
+
+    .timer-controls__item {
+        width: 23%;
+        font-size: 1.5rem;
+    }
+
+    .clock-menu {
+        max-height: 100%;
+        width: 80%;
+        margin-left: 10%;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .timer-delta {
+        height: 20rem;
+    }
+
+    .timer-delta-block {
+        width: 70%;
+    }
+
+    .timer-controls {
+        width: 70%;
+    }
+    
+    .timer-mute-block {
+        width: 70%;
+    }
+
+    .timer-controls__item {
+        width: 19%;
+        font-size: 1.5rem;
+    }
+
+    .clock-menu {
+        background-color: #0003;
+        visibility: visible;
+        margin-top: 3rem;
+        border-top: 0;
+        height: 8rem;    
+        margin-left: 0;
+        width: unset;
+        position: static;
+        opacity: 1;
+    }
+
+    .clock-menu__list {
+        display: flex;
+        height: 100%;
+    }
+
+    .clock-menu__item {
+        padding: 0 1rem;
+        height: 100%;
+        border-right: 1px solid #000;
+        border-bottom: 0;
+    }
+
+    .clock-menu__item:last-child {
+        border-right: 0;
+    }
+
+    .clock-inactive {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .clock-swap {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .timer-controls__item {
+        width: 16%;
+    }
+}
